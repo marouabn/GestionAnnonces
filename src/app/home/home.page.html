@@ -1,10 +1,25 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title class="ion-text-center">
       Gestion des Annonces
     </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="bg-img">
+  <ion-list class="ion-margin ion-text-center">
+    <ion-list-header>
+      <ion-label color="light">Welcome</ion-label>
+    </ion-list-header>
+    <ion-button color="light" expand="block" shape="round" fill="outline" (click)="goToLogin()">Login</ion-button>
+    <ion-button color="light" expand="block" shape="round" fill="outline" (click)="goToSignup()">Sign Up</ion-button>
+  </ion-list>
 </ion-content>

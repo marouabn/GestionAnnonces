@@ -1,0 +1,107 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Register</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item >
+    <ion-label position="floating">Nom</ion-label>
+    <ion-input type="text" [(ngModel)]="users.nom" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Prenom</ion-label>
+    <ion-input type="text" [(ngModel)]="users.prenom" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Télephone</ion-label>
+    <ion-input type="text" [(ngModel)]="users.telephone" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Avatar</ion-label>
+    <ion-input type="text" [(ngModel)]="users.avatar"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">E-mail</ion-label>
+    <ion-input type="email" [(ngModel)]="users.email" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Adresse</ion-label>
+    <ion-input type="text" [(ngModel)]="users.adresse"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="users.password" required></ion-input>
+  </ion-item>
+  <ion-label>Rôle</ion-label>
+      <ion-select interface="popover" [(ngModel)]="users.role" type="text"
+       class="form-control" name="role" id="role" required>
+        <ion-select-option value="vendeur">Vendeur</ion-select-option>
+        <ion-select-option value="acheteur">Acheteur</ion-select-option>
+        <ion-select-option value="admin">Admin</ion-select-option>
+      </ion-select>
+  <ion-button class="ion-padding" color="primary" expand="full" 
+  (click)="register(users)">Register</ion-button>
+</ion-content> -->
+
+<ion-header>
+  <ion-toolbar class="bg-img">
+    
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item >
+    <ion-label position="floating"><ion-icon name="person-outline"></ion-icon> Nom</ion-label>
+    <ion-input type="text" [(ngModel)]="users.nom" required clearInput="true" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating"> <ion-icon name="person-outline"></ion-icon> Prenom</ion-label>
+    <ion-input type="text" [(ngModel)]="users.prenom" required clearInput="true"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="call-outline"></ion-icon> Télephone</ion-label>
+    <ion-input type="text" [(ngModel)]="users.telephone" clearInput="true" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="camera-outline"></ion-icon> Avatar</ion-label>
+    <ion-input type="text" [(ngModel)]="users.avatar" clearInput="true"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="card-outline"></ion-icon> Carte cin</ion-label>
+    <ion-input type="text" [(ngModel)]="users.cin" clearInput="true"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="mail-open-outline"></ion-icon> E-mail</ion-label>
+    <ion-input type="email" [(ngModel)]="users.email" required clearInput="true"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="home-outline"></ion-icon> Adresse</ion-label>
+    <ion-input type="text" [(ngModel)]="users.adresse" clearInput="true"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="bag-check-outline"></ion-icon> Password</ion-label>
+    <ion-input type="password" [(ngModel)]="users.password" required clearInput="true"></ion-input>
+  </ion-item>
+
+  <ion-label><ion-icon name="person-outline"></ion-icon> Rôle</ion-label>
+      <ion-select interface="popover" [(ngModel)]="users.role" type="text"
+       class="form-control" name="role" id="role" required>
+        <ion-select-option value="vendeur">Vendeur</ion-select-option>
+        <ion-select-option value="acheteur">Acheteur</ion-select-option>
+      </ion-select>
+  <ion-button class="ion-padding" color="medium" expand="full" 
+  (click)="register(users)" shape="round">Register</ion-button>
+
+</ion-content>

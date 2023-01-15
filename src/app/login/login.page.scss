@@ -1,0 +1,39 @@
+.bg-img {
+
+    --background: var(--ion-color-dark) url('../../assets/images/emna.png') no-repeat center center/cover;;
+    ion-grid{
+        transform: translateY(10vh);
+        ion-label,p{
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 0.8px;
+        }
+    }
+  }
+  ion-footer{
+      ion-row{
+          background: transparent;
+          display: block;
+          ion-list{
+              border-radius: 20px 20px 0 0;
+              ion-list-header{
+                  ion-label{
+                      font-weight: bold;
+                      font-size: 1.8em;
+                  }
+              }
+          }
+      }
+  }
+.m{display: block;}
+
+.ani{
+    animation: mymove 4s infinite;
+   }
+@keyframes mymove {
+    0%   {transform: translate(0, 0);}
+   
+    50%  {transform: translate(10px,0px);}
+    
+    100% {transform: translate(0, 0);}
+    }

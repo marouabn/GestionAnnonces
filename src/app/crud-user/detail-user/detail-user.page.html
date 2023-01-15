@@ -1,82 +1,192 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar color="tertiary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title></ion-title>
+    <ion-title *ngIf="users" class="ion-text-center">{{ users.prenom }} {{ users.nom }}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="deleteUser()">
         <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
       </ion-button>
-    </ion-buttons>
+        <ion-back-button>
+          <ion-icon name="close" slot="icon-only"></ion-icon>
+        </ion-back-button> -->
+<!-- <ion-button (click)="dismissModal()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button> -->
+<!-- </ion-buttons>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="list-user"></ion-back-button>
+      <ion-button (click)="updateUser()">
+      <ion-icon name="create" slot="icon-only"></ion-icon>
+    </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <div class="vertical-padding">
-  
-    <div class="ion-text-center">
-      <h4 class="text-tertiary">{{selectedUser.prenom}} {{selectedUser.nom}}</h4>
-    </div>
-    <div class="ion-text-center">
-      <span class="text-muted ion-no-margin text-job"><strong>{{selectedUser.role}}</strong></span>
-    </div>
-  
+  <div *ngIf="users">
+    <div class="vertical-padding">
     <ion-grid fixed>
       <ion-row>
-        <ion-col size="4" class="ion-no-padding position-relative">
-          <ion-button fill="clear" class="button-vertical-align button-left">
-            <ion-icon slot="icon-only" name="chatbubbles"></ion-icon>
-          </ion-button>
-        </ion-col>
+        <ion-col></ion-col>
         <ion-col size="4">
-          <img [src]="selectedUser.avatar" class="image-round border-tertiary margin-top">
-          <br>
+          <img
+            [src]="users.avatar"
+            class="image-round border-tertiary margin-top"
+          />
+          <br />
         </ion-col>
-        <ion-col size="4" class="ion-no-padding position-relative">
-          <ion-button fill="clear" class="button-vertical-align button-right">
-            <ion-icon slot="icon-only" name="call"></ion-icon>
-          </ion-button>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-form>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Prénom</ion-label>
+            <strong class="text-tertiary">
+              <ion-input [(ngModel)]="users.prenom"></ion-input>
+            </strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Nom</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="users.nom"></ion-input></strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Email</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="users.email">
+              <ion-icon name="mail-open-outline"></ion-icon>
+            </ion-input></strong>
+          </ion-item>
+          <ion-item>
+            <ion-label>Rôle</ion-label>
+            <ion-select value="{{users.role}}" [(ngModel)]="users.role">
+              <ion-select-option value="vendeur">Vendeur</ion-select-option>
+              <ion-select-option value="acheteur">Acheteur</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Adresse</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="users.adresse"></ion-input></strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Numéro de Téléphone</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="users.telephone"></ion-input></strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Photo du profile</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="users.avatar"></ion-input></strong>
+          </ion-item>
+        </ion-form>
         </ion-col>
       </ion-row>
     </ion-grid>
-  
   </div>
-<br><br><br>
-  <div class="ion-padding">
-    <ion-grid class="ion-no-padding">
+</ion-content> -->
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title *ngIf="users" class="ion-text-center"
+      >{{ users.prenom }} {{ users.nom }}</ion-title
+    >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="crud-user/list-user"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="deleteUser()">
+        <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+      <!-- <ion-button (click)="dismissModal()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button> -->
+      <ion-button (click)="updateUser()">
+        <ion-icon name="create" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- <ion-buttons slot="start">
+      <ion-button (click)="updateUser()">
+        <ion-icon name="create" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="users">
+    <div class="vertical-padding">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col></ion-col>
+          <ion-col size="4">
+            <img
+              [src]="users.avatar"
+              class="image-round border-tertiary margin-top"
+            />
+            <br />
+          </ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <ion-grid>
       <ion-row>
-        <ion-col size="6">
-          <strong class="text-tertiary">Addresse mail</strong> <br>
-          <small class="text-muted">{{selectedUser.email}}</small>
-        </ion-col>
-        <ion-col size="6">
-          <strong class="text-tertiary">Numéro de Téléphone</strong> <br>
-          <small class="text-muted">{{selectedUser.telephone}}</small>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="6">
-          <strong class="text-tertiary">Numéro de CIN</strong> <br>
-          <small class="text-muted">{{selectedUser.cin}}</small>
-        </ion-col>
-        <ion-col size="6">
-          <strong class="text-tertiary">Date de naissance</strong> <br>
-          <small class="text-muted">{{selectedUser.datenaissance}}</small>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="6">
-          <strong class="text-tertiary">Addresse</strong> <br>
-          <small class="text-muted">{{selectedUser.adresse}}</small>
-        </ion-col>
-        <ion-col size="6">
-          <strong class="text-tertiary">Code Postale</strong> <br>
-          <small class="text-muted">{{selectedUser.codepostale}}</small>
+        <ion-col>
+          <ion-form>
+            <ion-item>
+              <ion-label class="text-tertiary" position="floating"
+                >Prénom</ion-label
+              >
+              <strong class="text-tertiary"
+                ><ion-input [(ngModel)]="users.prenom"></ion-input
+              ></strong>
+            </ion-item>
+            <ion-item>
+              <ion-label class="text-tertiary" position="floating"
+                >Nom</ion-label
+              >
+              <strong class="text-tertiary"
+                ><ion-input [(ngModel)]="users.nom"></ion-input
+              ></strong>
+            </ion-item>
+            <ion-item>
+              <ion-label class="text-tertiary" position="floating"
+                >Email</ion-label
+              >
+              <strong class="text-tertiary"
+                ><ion-input [(ngModel)]="users.email">
+                  <ion-icon name="mail-open-outline"></ion-icon> </ion-input
+              ></strong>
+            </ion-item>
+            <ion-item>
+              <ion-label>Rôle</ion-label>
+              <ion-select value="{{users.role}}" [(ngModel)]="users.role">
+                <ion-select-option value="vendeur">Vendeur</ion-select-option>
+                <ion-select-option value="acheteur">Acheteur</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label class="text-tertiary" position="floating"
+                >Adresse</ion-label
+              >
+              <strong class="text-tertiary"
+                ><ion-input [(ngModel)]="users.adresse"></ion-input
+              ></strong>
+            </ion-item>
+            <ion-item>
+              <ion-label class="text-tertiary" position="floating"
+                >Numéro de Téléphone</ion-label
+              >
+              <strong class="text-tertiary"
+                ><ion-input [(ngModel)]="users.telephone"></ion-input
+              ></strong>
+            </ion-item>
+            <ion-item>
+              <ion-label class="text-tertiary" position="floating"
+                >Photo du profile</ion-label
+              >
+              <strong class="text-tertiary"
+                ><ion-input [(ngModel)]="users.avatar"></ion-input
+              ></strong>
+            </ion-item>
+          </ion-form>
         </ion-col>
       </ion-row>
     </ion-grid>

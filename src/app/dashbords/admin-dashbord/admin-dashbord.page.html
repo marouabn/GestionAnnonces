@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title class="ion-text-center">Our Application</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+      <ion-button [routerLink]="['crud-profils','profil']">
+        <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content class="bg"> -->
+  <!-- <section style="text-align: center">
+    <ion-icon style="font-size: 5em" name="person"></ion-icon>
+    <h1 style="font-size: 1, 4em" no-margin>Welcome</h1>
+  </section> -->
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card
+          color="medium"
+          (click)="goToUsers()"
+          style="text-align: center"
+          color="primary"
+        >
+          <ion-icon style="font-size: 1, 4em" name="person"></ion-icon>
+          <h6>List-User</h6>
+        </ion-card>
+      </ion-col>
+    </ion-row> -->
+    <!-- <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card
+          (click)="addUser()"
+          style="text-align: center"
+          color="primary"
+        >
+          <ion-icon name="person"></ion-icon>
+          <h6>add-user</h6>
+        </ion-card>
+      </ion-col>
+    </ion-row> -->
+
+    <!-- <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card
+          [routerLink]="['crud-profils','profil']"
+          style="text-align: center"
+          color="primary"
+        >
+          <ion-icon name="person"></ion-icon>
+          <h6>Profil</h6>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card (click)="logout()" style="text-align: center" color="primary">
+          <ion-icon name="person"></ion-icon>
+          <h6>Go-Home</h6>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->
+<ion-content [fullscreen]="true" class="bg-img">
+</ion-content>

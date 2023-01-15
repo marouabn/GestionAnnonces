@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>updateprofil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="users">
+    <div class="vertical-padding">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col></ion-col>
+          <ion-col size="4">
+            <img [src]="users.avatar" class="image-round border-tertiary margin-top"/>
+            <br>
+            <br>
+          </ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Prénom</ion-label>
+            <strong class="text-tertiary">
+              <ion-input [(ngModel)]="users.prenom"></ion-input>
+            </strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Nom</ion-label>
+            <strong class="text-tertiary"
+              ><ion-input [(ngModel)]="users.nom"></ion-input
+            ></strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Email</ion-label>
+            <strong class="text-tertiary">
+              <ion-input [(ngModel)]="users.email">
+                <ion-icon name="mail-open-outline"></ion-icon>
+                </ion-input></strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Password</ion-label>
+            <strong class="text-tertiary">
+              <ion-input [(ngModel)]="users.password">
+                </ion-input>
+              </strong>
+          </ion-item>
+          <ion-item>
+            <ion-label>Role</ion-label>
+            <ion-note slot="end"><strong class="text-tertiary">{{ users.role }}</strong></ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Numéro de Téléphone</ion-label>
+            <strong class="text-tertiary">
+              <ion-input [(ngModel)]="users.telephone">
+                </ion-input>
+              </strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Photo du profile</ion-label>
+            <strong class="text-tertiary">
+              <ion-input [(ngModel)]="users.avatar"></ion-input>
+            </strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Adresse</ion-label>
+            <strong class="text-tertiary">
+              <ion-input [(ngModel)]="users.adresse">
+              </ion-input>
+            </strong>
+          </ion-item>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button
+    class="ion-padding"
+    color="primary"
+    expand="full"
+    (click)="updateProfil(users)"
+    >Update</ion-button
+  >
+  </div>
+</ion-content>

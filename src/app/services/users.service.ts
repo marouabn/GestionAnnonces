@@ -1,66 +1,46 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Firestore, collectionData, docData, collection, doc, addDoc, updateDoc } from '@angular/fire/firestore';
+//import { deleteApp } from '@firebase/app';
+import { deleteDoc } from '@firebase/firestore';
+import { Observable } from 'rxjs';
+import { Users } from '../models/users';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  listUsers: User[]= [
-    {
-      id: 1,
-      avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Emma_Watson_2013.jpg/220px-Emma_Watson_2013.jpg',
-      cin: '07485307',
-      nom: 'Gharbi',
-      prenom: 'Faouzia',
-      email: 'faouzia.gharbi@gmail.com',
-      datenaissance: '1997-02-27',
-      telephone: '21367963',
-      role:'admin',
-      adresse: 'Ariana',
-      codepostale: '2022',
-  },
-  {
-    id: 2,
-    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Natalie_Portman_Cannes_2015_5.jpg/220px-Natalie_Portman_Cannes_2015_5.jpg',
-    cin: '07413607',
-    nom: 'Madouini',
-    prenom: 'Nawress',
-    email: 'nawress.madouini@gmail.com',
-    datenaissance: '1998-02-12',
-    telephone: '55554123',
-    role:'vendeur',
-    adresse: 'Ariana',
-    codepostale: '2022'
-},
-{
-  id: 3,
-  avatar: 'https://fr.web.img4.acsta.net/c_310_420/pictures/17/10/13/15/26/0350483.jpg',
-  cin: '10237480',
-  nom: 'Tayachi',
-  prenom: 'Marwen',
-  email: 'marwen.tayechi@gmail.com',
-  datenaissance: '1996-05-27',
-  telephone: '22113344',
-  role:'acheteur',
-  adresse: 'Bizert',
-  codepostale: '2013'
-},
-  ];
-
-  constructor() { }
-
-  getAllUtilisateur(){
-    return this.listUsers;
+  constructor(private firestore: Firestore, private afAuth: AngularFireAuth, public fire: AngularFirestore,) {  }
+  getUsers(): Observable<Users[]>{
+    const userRef = collection(this.firestore, 'users');
+    return collectionData(userRef, { idField: 'id'}) as Observable<Users[]>;
   };
-  getUtilisateurById(id){
-    return this.listUsers.find((c) => c.id == id);
+  getUsersById(id): Observable<Users>{
+    const userDocRef = doc(this.firestore, `users/${id}`);
+    return docData(userDocRef, { idField: 'uid'}) as Observable<Users>;
   };
-  deleteUserById(c) {
-    let i = this.listUsers.indexOf(c);
-    this.listUsers.splice(i, 1);
+  getUserById(id): Observable<Users[]>{
+    const userDocRef = doc(this.firestore, `users/${id}`);
+    return docData(userDocRef, { idField: 'uid'}) as Observable<Users[]>;
   };
-  addUser(newUser) {
-      newUser.id = this.listUsers[this.listUsers.length - 1].id + 1;
-      this.listUsers.push(newUser);
-    }
+ /*  getUserById(id){
+      return this.fire.collection('users').doc(id).valueChanges();
+  }; */
+ /*  addUsers(user: Users) {
+    const userRef = collection(this.firestore, 'users');
+    return addDoc(userRef, user);
+  }; */
+  addUsers(data) {
+    return this.fire.collection('users').doc(data.uid).set(data);
+  }
+  deleteUser(user: Users) {
+    const userDocRef = doc(this.firestore, `users/${user.uid}`);
+    return deleteDoc(userDocRef);
+  };
+  updateUsers(user: Users) {
+    const userDocRef = doc(this.firestore, `users/${user.uid}`);
+    return updateDoc(userDocRef, { nom: user.nom, prenom: user.prenom, avatar: user.avatar, email: user.email,
+    adresse: user.adresse, role: user.role, telephone: user.telephone});
+  };
 }

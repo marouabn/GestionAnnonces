@@ -1,0 +1,69 @@
+<ion-content [fullscreen]="false" class="bg-img"  >
+  <!--<ion-grid >
+    <ion-label color="white" class="ion-margin ion-padding-start ion-text-center"
+      ><div class="ani">Welcome</div>
+      <p>
+        <ion-text class="ion-margin ion-padding-start" class="ion-text-center"
+          ><div class="ani">Back</div></ion-text
+        >
+      </p>
+    </ion-label>
+  </ion-grid>-->
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-row>
+    <ion-list lines="full">
+      <ion-list-header class="ion-margin">
+        <div class="m">
+          <ion-item>
+            <ion-input
+              placeholder="Email"
+              type="email"
+              [(ngModel)]="users.email"
+              required
+              clearInput="true"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              placeholder="Password"
+              type="password"
+              [(ngModel)]="users.password"
+              required
+              clearInput="true"
+            ></ion-input>
+          </ion-item>
+
+          <div class="log">
+            <ion-button
+              class="login-button"
+              expand="full"
+              size="large"
+              (click)="login(users)"
+              >Login</ion-button
+            >
+          </div>
+
+          <ion-button
+            size="large"
+            class="ion-padding"
+            color="medium"
+            expand="full"
+            [routerLink]="['/register']"
+            >Register</ion-button
+          >
+
+          <ion-button
+            (click)="goToResetPwd()"
+            size="large"
+            class="ion-padding"
+            type="submit"
+            color="danger"
+            expand="block"
+            >Forgot Password</ion-button
+          >
+        </div>
+      </ion-list-header>
+    </ion-list>
+  </ion-row>
+</ion-footer>

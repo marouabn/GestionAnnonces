@@ -1,0 +1,117 @@
+<!-- <ion-header>
+  <ion-toolbar color="medium">
+    <ion-title class="ion-text-center">Ajouter catégorie </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="crud-categorie/list-categorie"
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <label for="nom">Nom</label>
+      <input ngModel type="text" class="form-control" name="nom" id="nom" />
+      <label for="id">Image du marque</label>
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="avatar"
+        id="avatar"
+      />
+      <label for="id">Description</label>
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="description"
+        id="description"
+      />
+      <label for="id">Date de creation</label>
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="datecreationCat"
+        id="datecreationCat"
+      />
+      <label for="id">Date de mis à jour</label>
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="dateupdateCat"
+        id="dateupdateCat"
+      />
+
+      <ion-button color="medium" type="submit" expand="block"
+        >Ajouter</ion-button
+      >
+    </form>
+  </div>
+</ion-content>
+ -->
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title class="ion-text-center">Ajouter une categorie </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="crud-categorie/list-categorie"
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <label for="nom">Nom</label>
+      <input ngModel type="text" class="form-control" name="nom" id="nom" />
+      <label for="id"
+        ><ion-icon name="easel-outline"></ion-icon> Image du marque</label
+      >
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="avatar"
+        id="avatar"
+      />
+      <label for="id">Description</label>
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="description"
+        id="description"
+      />
+      <label for="id"
+        ><ion-icon name="calendar-outline"></ion-icon> Date de creation</label
+      >
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="datecreationCat"
+        id="datecreationCat"
+      />
+      <label for="id"
+        ><ion-icon name="calendar-outline"></ion-icon> Date de mis à jour</label
+      >
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="dateupdateCat"
+        id="dateupdateCat"
+      />
+
+      <ion-button color="medium" type="submit" expand="block"
+        >Ajouter</ion-button
+      >
+    </form>
+  </div>
+</ion-content>

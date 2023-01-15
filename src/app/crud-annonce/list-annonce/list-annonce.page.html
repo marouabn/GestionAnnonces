@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title class="ion-text-center">Nos Annonces</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToAdd()" color="dark">
+        <ion-icon name="bag-add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button menuId="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item
+      lines="none"
+      *ngFor="let annonce of annonces"
+      (click)="openAnnonce(annonce)"
+    >
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{annonce.titre}}</ion-card-title>
+          <ion-card-subtitle>{{annonce.prix}} DT</ion-card-subtitle>
+        </ion-card-header>
+        <img [src]="annonce.avatar" />
+        <ion-card-content>
+          <p>{{annonce.contact}}</p>
+          <p>{{annonce.description}}</p>
+          <p>{{annonce.dateupdate}}</p>
+          <p>{{annonce.datecreation}}</p>
+          <p>{{annonce.scategorie.libelle}}</p>
+          <p>{{annonce.categorie.nom}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

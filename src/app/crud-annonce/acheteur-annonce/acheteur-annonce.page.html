@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>acheteur-annonce</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item lines="none" *ngFor="let annonce of annonces" (click)="openAnnonce(annonce)">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{annonce.titre}}</ion-card-title>
+          <ion-card-subtitle>{{annonce.prix}} DT</ion-card-subtitle>
+        </ion-card-header>
+        <img [src]="annonce.avatar">
+        <ion-card-content>
+          <p>{{annonce.contact}}</p>
+          <p>{{annonce.description}}</p>
+          <p>{{annonce.dateupdate}}</p>
+          <p>{{annonce.datecreation}}</p>
+          <p>{{annonce.scategorie.libelle}}</p>
+          <p>{{annonce.categorie.nom}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

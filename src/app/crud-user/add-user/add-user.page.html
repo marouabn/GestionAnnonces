@@ -1,18 +1,20 @@
 <ion-header>
-  <ion-toolbar color="tertiary">
-    <ion-title>Ajouter nouveau utilisateur</ion-title>
+  <ion-toolbar color="medium">
+    <ion-title>Ajouter un utilisateur</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <div class="ion-margin">
-    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <form #users="ngForm" (ngSubmit)="onSubmit(users.value)">
+      <ion-icon name="person-outline"></ion-icon>
       <label for="nom">Nom</label>
       <input ngModel type="text" class="form-control" name="nom" id="nom" />
+      <ion-icon name="person-outline"></ion-icon>
       <label for="prenom">Prénom</label>
+
       <input
         ngModel
         type="text"
@@ -20,7 +22,9 @@
         name="prenom"
         id="prenom"
       />
+      <ion-icon name="call-outline"></ion-icon>
       <label for="telephone">Téléphone</label>
+
       <input
         ngModel
         type="text"
@@ -28,6 +32,7 @@
         name="telephone"
         id="telephone"
       />
+      <ion-icon name="camera-outline"></ion-icon>
       <label for="avatar">Avatar</label>
       <input
         ngModel
@@ -36,21 +41,19 @@
         name="avatar"
         id="avatar"
       />
-      <label for="cin">carte de CIN</label>
-      <input ngModel type="text" class="form-control" name="cin" id="cin" />
-
-      <label for="datenaissance">Date de naissance</label>
-      <input
-        ngModel
-        type="text"
-        class="form-control"
-        name="datenaissance"
-        id="datenaissance"
-      />
-
+      <ion-icon name="mail-open-outline"></ion-icon>
       <label for="email">Adresse mail</label>
       <input ngModel type="text" class="form-control" name="email" id="email" />
-
+      <ion-icon name="bag-check-outline"></ion-icon>
+      <label for="password">Password</label>
+      <input
+        ngModel
+        type="password"
+        class="form-control"
+        name="password"
+        id="password"
+      />
+      <ion-icon name="home-outline"></ion-icon>
       <label for="adresse">Adresse</label>
       <input
         ngModel
@@ -59,16 +62,8 @@
         name="adresse"
         id="adresse"
       />
-      <label for="codepostale">Code postale</label>
-      <input
-        ngModel
-        type="text"
-        class="form-control"
-        name="codepostale"
-        id="codepostale"
-      />
-
-      <label position="floating">Rôle</label>
+      <ion-icon name="person-outline"></ion-icon>
+      <label>Rôle</label>
       <ion-select
         interface="popover"
         ngModel
@@ -81,9 +76,10 @@
         <ion-select-option value="vendeur">Vendeur</ion-select-option>
         <ion-select-option value="acheteur">Acheteur</ion-select-option>
       </ion-select>
-
       <br /><br />
-      <ion-button type="submit" expand="block">Ajouter</ion-button>
+      <ion-button color="medium" type="submit" expand="block"
+        >Ajouter</ion-button
+      >
     </form>
   </div>
 </ion-content>

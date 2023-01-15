@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title class="ion-text-center">Categories</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="goToAdd()" color="dark">
+        <ion-icon name="bag-add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+    <ion-buttons slot="start">
+      <ion-menu-button menuId="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-fab horizontal="end" slot="fixed">
+    <ion-fab-button (click)="goToAdd()" color="dark" size="small">
+      <ion-icon name="bag-add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-grid>
+    <ion-list>
+      <ion-item
+        lines="none"
+        *ngFor="let categorie of categories"
+        (click)="openCategorie(categorie)"
+      >
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{categorie.nom}}</ion-card-title>
+            <ion-card-subtitle> </ion-card-subtitle>
+          </ion-card-header>
+          <img [src]="categorie.avatar" />
+          <ion-card-content>
+            <p>{{categorie.description}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+</ion-content>
+
+<!-- <ion-content>
+  <ion-fab horizontal="end" slot="fixed">
+    <ion-fab-button (click)="goToAdd()" color="dark" size="small">
+      <ion-icon name="person-add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-raw>
+    <ion-col size-md="6" offset-md="3">
+          <p class="ion-margin"><strong>Listes des categories</strong></p>
+    </ion-col>
+    </ion-raw>
+<ion-card>  
+<ion-card-content>
+  <ion-item lines="none" *ngFor="let categorie of categories" (click)="openCategorie(categorie)">
+    <ion-label>
+      <h2>{{categorie.nom}} </h2>
+    </ion-label>
+  </ion-item>
+  </ion-card-content>
+</ion-card>
+</ion-content>
+ -->

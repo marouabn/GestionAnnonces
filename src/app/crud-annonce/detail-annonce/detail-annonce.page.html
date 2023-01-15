@@ -1,0 +1,133 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="deleteAnnonce()">
+        <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button (click)="dismissModal()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button (click)="updateAnnonce()">
+      <ion-icon name="create" slot="icon-only"></ion-icon>
+    </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card *ngIf='annonces'>
+    <ion-col></ion-col>
+    <ion-col>
+    <img [src]="annonces.avatar">
+  </ion-col>
+    <ion-col></ion-col>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-item>
+        <ion-label class="text-tertiary" position="floating">Titre</ion-label>
+        <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.titre"></ion-input></strong>
+      </ion-item>
+    </ion-card-title>
+    <ion-card-subtitle><ion-item>
+      <ion-label class="text-tertiary" position="floating">Prix</ion-label>
+      <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.prix"></ion-input></strong>
+    </ion-item>
+  </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+            <ion-item>
+              <ion-label class="text-tertiary" position="floating">Description</ion-label>
+              <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.description"></ion-input></strong>
+            </ion-item>
+           
+            <ion-item>
+              <ion-label class="text-tertiary" position="floating">Date creation</ion-label>
+              <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.datecreation"></ion-input></strong>
+            </ion-item>
+            <ion-item>
+              <ion-label class="text-tertiary" position="floating">Date update</ion-label>
+              <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.dateupdate"></ion-input></strong>
+            </ion-item>
+            <ion-item>
+              <ion-label class="text-tertiary" position="floating">Contact</ion-label>
+              <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.contact"></ion-input></strong>
+            </ion-item>
+            <ion-item>
+              <ion-label class="text-tertiary" position="floating">Image du produit</ion-label>
+              <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.avatar"></ion-input></strong>
+            </ion-item>
+            <ion-label class="text-tertiary"  for="categorie">Catégorie :{{annonces.categorie.nom}} </ion-label>
+              <select [(ngModel)]="annonces.categorie" name="categorie"  class="form-control form-control-lg">
+                    <option *ngFor="let categorie of categories" [ngValue]="categorie"  >
+                      {{categorie.nom}}
+                    </option>
+              </select>
+              <ion-label class="text-tertiary"  for="scategorie">Sous Catégorie :{{annonces.scategorie.libelle}} </ion-label>
+              <select [(ngModel)]="annonces.scategorie" name="scategorie"  class="form-control form-control-lg">
+                    <option *ngFor="let scategorie of scategories" [ngValue]="scategorie"  >
+                      {{scategorie.libelle}}
+                    </option>
+              </select>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<!-- <ion-content>
+
+  <div *ngIf='annonces'>
+    <div class="vertical-padding">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col size="4">
+          <img
+            [src]="annonces.avatar"
+            class="image-round border-tertiary margin-top"
+          />
+          <br />
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+    <ion-grid>
+      <ion-row>           
+        <ion-col>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Titre</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.titre"></ion-input></strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Prix</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.prix"></ion-input></strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Description</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.description"></ion-input></strong>
+          </ion-item>
+         
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Date creation</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.datecreation"></ion-input></strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Date update</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.dateupdate"></ion-input></strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Contact</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.contact"></ion-input></strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Image du produit</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="annonces.avatar"></ion-input></strong>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+ -->

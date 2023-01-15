@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="deleteSCategorie()">
+        <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button (click)="dismissModal()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button (click)="updateSCategorie()">
+      <ion-icon name="create" slot="icon-only"></ion-icon>
+    </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf='scategories'>
+    <ion-grid>
+      <ion-row>           
+        <ion-col>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Libelle</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="scategories.libelle"></ion-input></strong>
+          </ion-item>
+          <ion-item>
+            <ion-label class="text-tertiary" position="floating">Description</ion-label>
+            <strong class="text-tertiary"><ion-input [(ngModel)]="scategories.description"></ion-input></strong>
+          </ion-item>
+          <ion-label class="text-tertiary"  for="categorie">Catégorie :{{scategories.categorie.nom}} </ion-label>
+          <select [(ngModel)]="scategories.categorie" name="categorie"  class="form-control form-control-lg">
+                <option *ngFor="let categorie of categories" [ngValue]="categorie"  >
+                  {{categorie.nom}}
+                </option>
+          </select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Ajouter une nouvelle sous categorie  </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="ion-margin">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <label for="libelle">Libelle</label>
+      <input ngModel type="string" class="form-control" name="libelle" id="libelle" />
+      <label for="description">Description</label>
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="description"
+        id="description"
+      />
+      <label for="categorie">Catégorie</label>
+        <select ngModel="scategorie.categorie" name="categorie" class="form-control form-control-lg" required>
+            <option *ngFor="let categorie of categories" [ngValue]="categorie" >
+                {{categorie.nom}}
+            </option>
+        </select>
+      <ion-button type="submit" expand="block">Ajouter</ion-button>
+    </form>
+  </div>
+</ion-content>

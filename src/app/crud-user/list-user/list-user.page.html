@@ -1,35 +1,49 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="medium">
     <ion-title class="ion-text-center">Utilisateurs</ion-title>
+    <!-- <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="dashbords/admin-dashbord/:id"
+      ></ion-back-button>
+    </ion-buttons> -->
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
+  <!-- <ion-toolbar>
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar> -->
 </ion-header>
 
 <ion-content>
-  <p class="ion-margin"><strong>Listes des Utilisateurs</strong></p>
   <ion-fab horizontal="end" slot="fixed">
-    <ion-fab-button (click)="goToAdd()" color="tertiary" size="small">
+    <ion-fab-button (click)="goToAdd()" color="dark" size="small">
       <ion-icon name="person-add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <ion-raw>
-    <ion-col size-md="6" offset-md="3">
-      <ion-list>
-        <ion-item
-          *ngFor="let utilisateur of tabUtilisateurs"
-          [routerLink]="['detail-user', utilisateur.id]"
-        >
-          <ion-avatar slot="start">
-            <ion-img [src]="utilisateur.avatar"></ion-img>
-          </ion-avatar>
-          <ion-label>
-            {{utilisateur.nom}} {{utilisateur.prenom}}:
-            <strong>{{utilisateur.role}}</strong></ion-label
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-list>
+          <ion-list-header>
+            <p class="ion-margin" class="ion-text-center"><strong>Listes des Utilisateurs</strong></p>
+          </ion-list-header>
+          <!-- <ion-searchbar placeholder="Search..." [(ngModel)]="searchTerm" ShowCancelButton="focus" animated="true"></ion-searchbar> -->
+          <ion-item
+            *ngFor="let utilisateur of users"
+            [routerLink]="['crud-user','detail-user', utilisateur.uid]"
           >
-        </ion-item>
-      </ion-list>
-    </ion-col>
-  </ion-raw>
+            <ion-avatar slot="start">
+              <img [src]="utilisateur.avatar" />
+            </ion-avatar>
+            <ion-label>
+              <h2>{{utilisateur.nom}} {{utilisateur.prenom}}</h2>
+              <h3>{{utilisateur.role}}</h3>
+              <p>{{utilisateur.email}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

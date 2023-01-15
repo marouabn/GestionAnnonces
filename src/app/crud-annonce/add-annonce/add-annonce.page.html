@@ -1,0 +1,174 @@
+<!-- <ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Ajouter une nouvelle annonce  </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="ion-margin">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <label for="titre">Titre</label>
+      <input ngModel type="text" class="form-control" name="titre" id="titre" />
+      <label for="prix">Prix</label>
+      <input
+        ngModel
+        type="number"
+        class="form-control"
+        name="prix"
+        id="prix"
+      />
+      <label for="description">Description</label>
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="description"
+        id="description"
+      />
+      <label for="avatar">Avatar</label>
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="avatar"
+        id="avatar"
+      />
+      <label for="datecreation">Date creation</label>
+      <input ngModel type="text" class="form-control" name="datecreation" id="datecreation" />
+
+      <label for="dateupdate">Date update</label>
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="dateupdate"
+        id="dateupdate"
+      />
+
+      <label for="contact"> Contact</label>
+      <input ngModel type="text" class="form-control" name="contact" id="contact" />
+
+      <label for="categorie">Catégorie</label>
+        <select ngModel="annonce.categorie" name="categorie" class="form-control form-control-lg" required>
+            <option *ngFor="let categorie of categories" [ngValue]="categorie" >
+                {{categorie.nom}}
+            </option>
+        </select>
+        <label for="scategorie">Sous Catégorie</label>
+        <select ngModel="annonce.scategorie" name="scategorie" class="form-control form-control-lg" required>
+            <option *ngFor="let scategorie of scategories" [ngValue]="scategorie" >
+                {{scategorie.libelle}}
+            </option>
+        </select>
+      <ion-button type="submit" expand="block">Ajouter</ion-button>
+    </form>
+  </div>
+</ion-content> -->
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title style="text-align: center">Ajouter une annonce </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="crud-annonce/list-annonce"
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <label for="titre">Titre</label>
+      <input
+        clearInput="true"
+        ngModel
+        type="text"
+        class="form-control"
+        name="titre"
+        id="titre"
+      />
+      <label for="prix"><ion-icon name="cash-outline"></ion-icon> Prix</label>
+      <input ngModel type="number" class="form-control" name="prix" id="prix" />
+      <label for="description">Description</label>
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="description"
+        id="description"
+        clearInput="true"
+      />
+      <label for="avatar"
+        ><ion-icon name="person-outline"></ion-icon> Avatar</label
+      >
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="avatar"
+        id="avatar"
+      />
+      <label for="datecreation"
+        ><ion-icon name="calendar-number-outline"></ion-icon> Date
+        creation</label
+      >
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="datecreation"
+        id="datecreation"
+      />
+
+      <label for="dateupdate"
+        ><ion-icon name="calendar-number-outline"></ion-icon> Date update</label
+      >
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="dateupdate"
+        id="dateupdate"
+      />
+
+      <label for="contact"
+        ><ion-icon name="call-outline"></ion-icon> Contact</label
+      >
+      <input
+        ngModel
+        type="text"
+        class="form-control"
+        name="contact"
+        id="contact"
+      />
+
+      <label for="categorie">Catégorie</label>
+      <select
+        ngModel="annonce.categorie"
+        name="categorie"
+        class="form-control form-control-lg"
+        required
+      >
+        <option *ngFor="let categorie of categories" [ngValue]="categorie">
+          {{categorie.nom}}
+        </option>
+      </select>
+      <label for="scategorie">Sous Catégorie</label>
+      <select
+        ngModel="annonce.scategorie"
+        name="scategorie"
+        class="form-control form-control-lg"
+        required
+      >
+        <option *ngFor="let scategorie of scategories" [ngValue]="scategorie">
+          {{scategorie.libelle}}
+        </option>
+      </select>
+      <ion-button type="submit" expand="block">Ajouter</ion-button>
+    </form>
+  </div>
+</ion-content>
