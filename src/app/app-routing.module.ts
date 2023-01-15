@@ -50,13 +50,28 @@ const routes: Routes = [
     canLoad: [AuthGuard]
   },
   {
-    path: 'dashbords/vendeur-dashbord/:id/crud-profils/profil',
+    path: 'dashbords/admin-dashbord/:id/crud-profils/profil',
     loadChildren: () => import('./crud-profils/profil/profil.module').then( m => m.ProfilPageModule),
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'dashbords/vendeur-dashbord/:id/crud-annonce/list-annonce',
+    loadChildren: () => import('./crud-annonce/list-annonce/list-annonce.module').then( m => m.ListAnnoncePageModule),
     canLoad: [AuthGuard]
   },
   {
     path: 'dashbords/acheteur-dashbord/:id/crud-profils/profil',
     loadChildren: () => import('./crud-profils/profil/profil.module').then( m => m.ProfilPageModule),
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'dashbords/acheteur-dashbord/:id/crud-annonce/add-annonce',
+    loadChildren: () => import('./crud-annonce/add-annonce/add-annonce.module').then( m => m.AddAnnoncePageModule),
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'dashbords/acheteur-dashbord/:id/crud-annonce/list-annonce',
+    loadChildren: () => import('./crud-annonce/list-annonce/list-annonce.module').then( m => m.ListAnnoncePageModule),
     canLoad: [AuthGuard]
   },
   {

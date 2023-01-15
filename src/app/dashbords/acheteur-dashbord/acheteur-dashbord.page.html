@@ -37,6 +37,14 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true" class="bg-img">
+ 
+  <ion-button color="medium" [routerLink]="['crud-annonce','add-annonce']">Ajouter une annonce</ion-button>
+  
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer</ion-title>
+    <ion-button color="medium" [routerLink]="['crud-annonce','list-annonce']">Liste des annonces</ion-button>
+  </ion-toolbar>
+</ion-footer>
